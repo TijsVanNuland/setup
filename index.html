@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Two Web Pages</title>
+<style>
+  .container {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+  }
+  .webpage {
+    border: 1px solid #ccc;
+    width: 48%; /* Adjust width as needed */
+    height: 500px; /* Adjust height as needed */
+  }
+</style>
+</head>
+<body>
+
+<div class="container">
+  <iframe src="wled_tvn.local" class="webpage" id="webpage1"></iframe>
+  <iframe src="https://www.example.com/page2" class="webpage" id="webpage2"></iframe>
+</div>
+
+<script>
+  // Resizing iframes to fit window
+  window.addEventListener('resize', function() {
+    var iframes = document.querySelectorAll('.webpage');
+    iframes.forEach(function(iframe) {
+      iframe.style.height = (window.innerHeight - 20) + 'px'; // Adjusting height
+    });
+  });
+
+  // Initial resizing
+  window.dispatchEvent(new Event('resize'));
+</script>
+
+</body>
+</html>
